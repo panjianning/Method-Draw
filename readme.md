@@ -36,7 +36,10 @@ Install dev dependencies:
 
 Then you can build into `dist` by running:
 
-`gulp build`
+```
+npm install --global gulp
+gulp build
+```
 
 Deploy `dist` to your static file server of choice.
 

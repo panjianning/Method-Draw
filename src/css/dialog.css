@@ -4,7 +4,7 @@
 }
 
 #dialog_box_overlay {
-  background: var(--z0);
+  background: rgba(50,50,50,0.8);
   opacity: .5;
   height: 100%;
   left:0;
@@ -55,7 +55,8 @@
   transform: translate(-50%, -50%);
   position:fixed;
   z-index:50001;
-  background: var(--z15);
+  /*background: var(--z15);*/
+  background-color: white;
 }
 
 

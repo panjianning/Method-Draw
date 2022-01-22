@@ -6,7 +6,7 @@ MD.Darkmode = function(){
 
   function set(isDark) {
 
-    button.setAttribute("title", isDark ? "Switch to lightmode" : "Switch to darkmode")
+    button.setAttribute("title", isDark ? "日间模式" : "夜间模式")
     body.classList.toggle("inverted", !isDark);
     body.classList.add("cancel-transitions");
     setTimeout(function(){

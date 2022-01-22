@@ -6,11 +6,11 @@
   <link rel="icon" href="images/favicon.svg" sizes="any" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <title>Method Draw Vector Editor</title>
+  <title>SVG 在线编辑器</title>
   <meta charset="utf-8">
-  <meta name="description" content="Method Draw is an open source SVG editor for the web, you can use it online without signing up.">
+  <meta name="description" content="免费的SVG在线编辑器">
 
-  <!-- build:css all.css -->
+  <!-- build:css css/all.css -->
   <link rel="stylesheet" href="css/base.css" type="text/css"/>
   <link rel="stylesheet" href="css/method-draw.css" type="text/css"/>
   <link rel="stylesheet" href="css/jpicker.css" type="text/css"/>
@@ -72,61 +72,61 @@
   </a>
 
   <div class="menu">
-    <div class="menu_title">File</div>
+    <div class="menu_title">文件</div>
     <div class="menu_list inverted-undo" id="file_menu"> 
-      <div data-action="clear" id="tool_clear" class="menu_item">New Document</div>
+      <div data-action="clear" id="tool_clear" class="menu_item">新建...</div>
       
       <div id="tool_open" class="menu_item">
         <input type="file" accept="image/svg+xml" id="tool_open_input" />
-        Open SVG... <span class="shortcut" style="display: none;">⌘O</span>
+        打开SVG... <span class="shortcut" style="display: none;">⌘O</span>
       </div>
       
       <div id="tool_import" class="menu_item">
         <input type="file" accept="image/*"  id="tool_import_input" />
-        Place Image... <span class="shortcut" style="display: none;">⌘K</span>
+        插入图片... <span class="shortcut" style="display: none;">⌘K</span>
       </div>
-      <div data-action="save" id="tool_save" class="menu_item">Save Image... <span class="shortcut">⌘S</span></div>
-      <div data-action="export" id="tool_export" class="menu_item">Export as PNG</div>
+      <div data-action="save" id="tool_save" class="menu_item">导出SVG <span class="shortcut">⌘S</span></div>
+      <div data-action="export" id="tool_export" class="menu_item">导出PNG</div>
     </div>
   </div>
 
   <div class="menu">
-    <div class="menu_title">Edit</div>
+    <div class="menu_title">编辑</div>
     <div class="menu_list inverted-undo" id="edit_menu">
-      <div data-action="undo" class="menu_item" id="tool_undo">Undo <span class="shortcut">⌘Z</span></div>
-      <div data-action="redo" class="menu_item" id="tool_redo">Redo <span class="shortcut">⌘Y</span></div>
+      <div data-action="undo" class="menu_item" id="tool_undo">撤销 <span class="shortcut">⌘Z</span></div>
+      <div data-action="redo" class="menu_item" id="tool_redo">恢复 <span class="shortcut">⌘Y</span></div>
       <div class="separator"></div>
-      <div data-action="cutSelected" class="menu_item action_selected disabled" id="tool_cut">Cut <span class="shortcut">⌘X</span></div>
-      <div data-action="copySelected" class="menu_item action_selected disabled" id="tool_copy">Copy <span class="shortcut">⌘C</span></div>
-      <div data-action="pasteSelected" class="menu_item action_selected disabled" id="tool_paste">Paste <span class="shortcut">⌘V</span></div>
-      <div data-action="duplicateSelected" class="menu_item action_selected disabled" id="tool_clone">Duplicate <span class="shortcut">⌘D</span></div>
-      <div data-action="deleteSelected" class="menu_item action_selected disabled" id="tool_delete">Delete <span>⌫</span></div>
+      <div data-action="cutSelected" class="menu_item action_selected disabled" id="tool_cut">剪切 <span class="shortcut">⌘X</span></div>
+      <div data-action="copySelected" class="menu_item action_selected disabled" id="tool_copy">复制 <span class="shortcut">⌘C</span></div>
+      <div data-action="pasteSelected" class="menu_item action_selected disabled" id="tool_paste">粘贴 <span class="shortcut">⌘V</span></div>
+      <div data-action="duplicateSelected" class="menu_item action_selected disabled" id="tool_clone">克隆 <span class="shortcut">⌘D</span></div>
+      <div data-action="deleteSelected" class="menu_item action_selected disabled" id="tool_delete">删除 <span>⌫</span></div>
     </div>
   </div>
   
   <div class="menu">
-    <div class="menu_title">Object</div>
+    <div class="menu_title">对象</div>
     <div class="menu_list inverted-undo" id="object_menu">
-      <div class="menu_item action_selected disabled" id="tool_move_top">Bring to Front <span class="shortcut">⌘⇧↑</span></div>
-      <div class="menu_item action_selected disabled" id="tool_move_up">Bring Forward <span class="shortcut">⌘↑</span></div>
-      <div class="menu_item action_selected disabled" id="tool_move_down">Send Backward <span class="shortcut">⌘↓</span></div>
-      <div class="menu_item action_selected disabled" id="tool_move_bottom">Send to Back <span class="shortcut">⌘⇧↓</span></div>
+      <div class="menu_item action_selected disabled" id="tool_move_top">置于顶层 <span class="shortcut">⌘⇧↑</span></div>
+      <div class="menu_item action_selected disabled" id="tool_move_up">置于上一层 <span class="shortcut">⌘↑</span></div>
+      <div class="menu_item action_selected disabled" id="tool_move_down">置于下一层 <span class="shortcut">⌘↓</span></div>
+      <div class="menu_item action_selected disabled" id="tool_move_bottom">置于底层 <span class="shortcut">⌘⇧↓</span></div>
       <div class="separator"></div>
-      <div class="menu_item action_multi_selected disabled" id="tool_group">Group Elements <span class="shortcut">⌘G</span></div>
-      <div class="menu_item action_group_selected disabled" id="tool_ungroup">Ungroup Elements <span class="shortcut">⌘⇧G</span></div>
+      <div class="menu_item action_multi_selected disabled" id="tool_group">合并所选对象 <span class="shortcut">⌘G</span></div>
+      <div class="menu_item action_group_selected disabled" id="tool_ungroup">解除合并 <span class="shortcut">⌘⇧G</span></div>
       <div class="separator"></div>
-      <div class="menu_item action_path_convert_selected disabled" id="tool_topath">Convert to Path</div>
-      <div class="menu_item action_path_selected disabled" id="tool_reorient">Reorient path</div>
+      <div class="menu_item action_path_convert_selected disabled" id="tool_topath">转为 Path</div>
+      <div class="menu_item action_path_selected disabled" id="tool_reorient">重定向 path</div>
     </div>
   </div>
 
   <div class="menu">
-    <div class="menu_title">View</div>
+    <div class="menu_title">视图</div>
     <div class="menu_list inverted-undo" id="view_menu">
-        <div class="menu_item push_button_pressed" id="tool_rulers">View Rulers <span class="shortcut">⇧R</span></div>
-        <div class="menu_item" id="tool_wireframe">View Wireframe</div>
+        <div class="menu_item push_button_pressed" id="tool_rulers">显示刻度尺 <span class="shortcut">⇧R</span></div>
+        <div class="menu_item" id="tool_wireframe">显示 Wireframe</div>
         <div class="separator"></div>
-        <div class="menu_item" id="tool_source" data-action="source">Source... <span class="shortcut">⌘U</span></div>
+        <div class="menu_item" id="tool_source" data-action="source">源代码... <span class="shortcut">⌘U</span></div>
     </div>
   </div>
 

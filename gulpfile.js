@@ -8,7 +8,7 @@ const minify = require('gulp-minify');
 gulp.task('css', function () {
   return gulp.src('src/css/*.css')
     .pipe(concat('all.css'))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('js', function () {
