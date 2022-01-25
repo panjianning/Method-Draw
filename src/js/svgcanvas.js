@@ -5259,7 +5259,7 @@ $.SvgCanvas = function (container, config) {
 
                     attr = attrs.item(i);
                     var attrVal = toXml(attr.nodeValue);
-                    
+
                     // Namespaces have already been dealt with, so skip
                     if (attr.nodeName.indexOf('xmlns:') === 0) continue;
 
@@ -5974,8 +5974,8 @@ $.SvgCanvas = function (container, config) {
                 attrs.width = vb[2];
                 attrs.height = vb[3];
 
-                this.vb_x =  vb[0];
-                this.vb_y = vb[1];
+                this.vb_x = parseFloat(vb[0]);
+                this.vb_y = parseFloat(vb[1]);
             }
             // handle content that doesn't have a viewBox
             else {
@@ -8850,7 +8850,7 @@ $.SvgCanvas = function (container, config) {
             });
         }
 
-        selectorManager.selectorParentGroup.setAttribute("transform", "translate(" + x + "," + y + ")");
+        selectorManager.selectorParentGroup.setAttribute("transform", "translate(" + (x - this.vb_x) + "," + (y - this.vb_y) + ")");
 
         return {x: x, y: y, old_x: old_x, old_y: old_y, d_x: x - old_x, d_y: y - old_y};
     }
