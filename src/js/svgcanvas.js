@@ -5827,17 +5827,17 @@ $.SvgCanvas = function (container, config) {
         styles.forEach(style => {
             var parsed = parser.parseCSS(style.textContent);
             parsed.forEach(ruleset => {
-                const els = docEl.parentNode.querySelectorAll(ruleset.selector);
-                // console.log(els);
+                let els = docEl.parentNode.querySelectorAll(ruleset.selector);
+                // if (els.length === 0) {
+                //     els = docEl.querySelectorAll(ruleset.selector);
+                // }
                 els.forEach(el => {
                     ruleset.rules.forEach(rule => {
                         let curAttr = el.getAttribute(rule.directive);
-                        if (curAttr) {
-                            // el.setAttribute(rule.directive, curAttr + "," + rule.value);
-                        } else {
+                        if (!curAttr || (curAttr.length === rule.value.length)) {
                             el.setAttribute(rule.directive, rule.value);
                         }
-                        console.log(rule.directive + " " + rule.value);
+                        // console.log(rule.directive + " " + rule.value);
                     });
                 })
             })

@@ -10,7 +10,7 @@ MD.Editor = function(){
 
   function clear(){
     var dims = state.get("canvasSize");
-    $.confirm("<h4>Do you want to clear the drawing?</h4><p>This will also erase your undo history</p>", function(ok) {
+    $.confirm("<h4>新建文件将会清空当前画板，确定要清空吗？</h4><p>清空后不可撤销</p>", function(ok) {
       if(!ok) return;
       state.set("canvasMode", "select")
       svgCanvas.clear();
