@@ -124,7 +124,7 @@ const dao = [
     name: "darkmode",
     label: "Dark Mode",
     type: "boolean",
-    default: true,
+    default: false,
     private: true,
     save: true,
   },
