@@ -5471,6 +5471,7 @@ $.SvgCanvas = function (container, config) {
         });
 
         var str = this.svgCanvasToString();
+
         call("exported", {svg: str, issues: issues});
     };
 
@@ -5827,7 +5828,7 @@ $.SvgCanvas = function (container, config) {
             var parsed = parser.parseCSS(style.textContent);
             parsed.forEach(ruleset => {
                 const els = docEl.parentNode.querySelectorAll(ruleset.selector);
-                console.log(els);
+                // console.log(els);
                 els.forEach(el => {
                     ruleset.rules.forEach(rule => {
                         let curAttr = el.getAttribute(rule.directive);

@@ -36,7 +36,7 @@ function State(){
 
   this.clean = (warn = true) => {
     if (warn) {
-      const confirmed = confirm("Clears all editor configuration and canvas, are you sure?");
+      const confirmed = confirm("你确定要清空画布和重置编辑器设置吗？");
       if (!confirmed) return;
     }
 
