@@ -81,7 +81,7 @@ MD.Import = function(){
       editor.saveCanvas();
       state.set("canvasTitle", svgCanvas.getDocumentTitle());
     } else {
-      $.alert("Error: Unable to load SVG data", function() {
+      $.alert("错误：无法加载该SVG", function() {
         callback(false);
       });
     }

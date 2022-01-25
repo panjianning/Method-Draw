@@ -5129,11 +5129,16 @@ this.svgCanvasToString = function() {
       groupSvgElem(this);
     });
   }
-  
 
-  
   return output;
 };
+
+
+function escapeHTML(sHtml) {
+ return sHtml.replace(/[<>&"]/g,function(c){
+   return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];
+ });
+}
 
 // Function: svgToString
 // Sub function ran on each SVG element to convert it to a string as desired
@@ -5213,6 +5218,11 @@ this.svgToString = function(elem, indent) {
       for (var i=attrs.length-1; i>=0; i--) {
         attr = attrs.item(i);
         var attrVal = toXml(attr.nodeValue);
+
+        // console.log(attrVal);
+        // console.log(escapeHTML(attrVal));
+        attrVal = escapeHTML(attrVal);
+
         //remove bogus attributes added by Gecko
         if (moz_attrs.indexOf(attr.localName) >= 0) continue;
         if (attrVal != "") {
@@ -5743,7 +5753,9 @@ this.styleToAttr = function(doc) {
     parsed.forEach(ruleset => {
       const els = docEl.querySelectorAll(ruleset.selector);
       els.forEach(el => {
-        ruleset.rules.forEach(rule => el.setAttribute(rule.directive, rule.value));
+        ruleset.rules.forEach(rule => {
+          el.setAttribute(rule.directive, rule.value);
+        });
       })
     })
   });
@@ -5767,16 +5779,18 @@ this.setSvgString = function(xmlString) {
     var batchCmd = new BatchCommand("Change Source");
 
     this.prepareSvg(newDoc);
+
     newDoc = this.styleToAttr(newDoc);
-    
+
+    // console.log(newDoc.documentElement);
+
     // remove old svg document
     var nextSibling = svgcontent.nextSibling;
     var oldzoom = svgroot.removeChild(svgcontent);
     batchCmd.addSubCommand(new RemoveElementCommand(oldzoom, nextSibling, svgroot));
-  
 
     svgcontent = svgdoc.adoptNode(newDoc.documentElement);
-    
+
     svgroot.appendChild(svgcontent);
     var content = $(svgcontent);
     
