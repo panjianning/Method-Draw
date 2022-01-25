@@ -347,7 +347,9 @@ MD.Editor = function(){
 
   function source(){
     const textarea = editor.modal.source.el.querySelector("textarea");
+    console.log("before getSvgString");
     textarea.value = svgCanvas.getSvgString();
+    console.log("after getSvgString");
     editor.modal.source.open();
   }
 

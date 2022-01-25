@@ -2084,7 +2084,8 @@ $.SvgCanvas = function (container, config) {
         });
 
         // Make sure first elements are not null
-        while (selectedElements[0] == null) selectedElements.shift(0);
+        while ((selectedElements.length > 0) && (selectedElements[0] == null)) selectedElements.shift(0);
+
     };
 
 // Function: selectOnly()
@@ -5211,6 +5212,7 @@ $.SvgCanvas = function (container, config) {
 // Returns:
 // String with the given element as an SVG tag
     this.svgToString = function (elem, indent) {
+
         var out = new Array(), toXml = svgedit.utilities.toXml;
         var unit = curConfig.baseUnit;
         var unit_re = new RegExp('^-?[\\d\\.]+' + unit + '$');
