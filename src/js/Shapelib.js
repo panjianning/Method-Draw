@@ -13,18 +13,18 @@ MD.Shapelib = function(){
   
   // This populates the category list
   var categories = {
-    basic: 'Basic',
-    object: 'Objects',
-    symbol: 'Symbols',
-    arrow: 'Arrows',
-    flowchart: 'Flowchart',
-    nature: 'Nature',
-    game: 'Cards & Chess',
-    dialog_balloon: 'Dialog baloons',
-    music: 'Music',
-    weather: 'Weather &amp; Time',
-    ui: 'User Interface',
-    social: 'Social Web'
+    basic: '基本',
+    object: '对象',
+    symbol: '符号',
+    arrow: '箭头',
+    flowchart: '流程图',
+    nature: '自然',
+    game: '纸牌 & 棋牌',
+    dialog_balloon: '对话框',
+    music: '音乐',
+    weather: '天气 &amp; 时间',
+    ui: '用户界面',
+    social: '社交网络'
   };
   
   var library = {

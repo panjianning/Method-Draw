@@ -112,8 +112,8 @@
       <div class="menu_item action_selected disabled" id="tool_move_down">置于下一层 <span class="shortcut">⌘↓</span></div>
       <div class="menu_item action_selected disabled" id="tool_move_bottom">置于底层 <span class="shortcut">⌘⇧↓</span></div>
       <div class="separator"></div>
-      <div class="menu_item action_multi_selected disabled" id="tool_group">合并所选对象 <span class="shortcut">⌘G</span></div>
-      <div class="menu_item action_group_selected disabled" id="tool_ungroup">解除合并 <span class="shortcut">⌘⇧G</span></div>
+      <div class="menu_item action_multi_selected disabled" id="tool_group">合并为一个分组 <span class="shortcut">⌘G</span></div>
+      <div class="menu_item action_group_selected disabled" id="tool_ungroup">取消分组 <span class="shortcut">⌘⇧G</span></div>
       <div class="separator"></div>
       <div class="menu_item action_path_convert_selected disabled" id="tool_topath">转为 Path</div>
       <div class="menu_item action_path_selected disabled" id="tool_reorient">重定向 path</div>
@@ -425,7 +425,7 @@
   </div>
   
   <div id="g_panel" class="context_panel clearfix">
-    <h4>Group</h4>
+    <h4>分组</h4>
     <div class="draginputs">
       <label>
         <input id="g_x" class="attr_changer" data-title="Change groups's x coordinate" data-attr="x" pattern="[0-9]*" />
@@ -436,11 +436,11 @@
         <span>Y</span>
       </label>
     </div>
-    <div class="button full" title="Ungroup Elements" id="button_ungroup">Ungroup</div>
+    <div class="button full" title="Ungroup Elements" id="button_ungroup">取消分组</div>
   </div>
   
   <div id="path_node_panel" class="context_panel clearfix">
-    <h4>Edit Path</h4>
+    <h4>编辑路径</h4>
 
     <div class="draginputs">
       <label id="tool_node_x">
@@ -500,7 +500,7 @@
     </div>
     
     <div id="align_tools">
-      <h4>在画布上对齐</h4>
+      <h4>对齐到画笔</h4>
       <div class="toolset align_buttons" id="tool_position">
           <label>
             <div class="col last clear" id="position_opts">
@@ -543,44 +543,44 @@
   
   <!-- Buttons when multiple elements are selected -->
   <div id="multiselected_panel" class="context_panel clearfix">
-    <h4 class="hidable">Multiple Elements</h4>
+    <h4 class="hidable">多个对象</h4>
     
     <div class="toolset align_buttons">
       <label id="tool_align_relative">
         <div class="select-input">
           <select id="align_relative_to" title="Align relative to ..." class="select_tool">
-          <option id="selected_objects" value="selected">Align to objects</option>
-          <option id="page" value="page">Align to page</option>
+          <option id="selected_objects" value="selected">对象对齐</option>
+          <option id="page" value="page">对齐到画布</option>
           </select>
         </div>
       </label>
       <div class="col last clear">
-          <div class="align_button" id="tool_alignleft" title="Align Left" data-align="left">
+          <div class="align_button" id="tool_alignleft" title="左对齐" data-align="left">
             <svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg" width="27" height="27">
               <path d="M 2 1 L 2 5 L 14 5 L 14 11 L 2 11 L 2 16 L 20 16 L 20 22 L 2 22 L 2 26 L 1 26 L 1 1 L 2 1 Z" />
             </svg>
           </div>
-          <div class="align_button" id="tool_aligncenter" title="Align Center" data-align="center">
+          <div class="align_button" id="tool_aligncenter" title="水平居中" data-align="center">
             <svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg" width="27" height="27">
               <path d="M 13 1 L 14 1 L 14 6 L 22 6 L 22 12 L 14 12 L 14 15 L 19 15 L 19 21 L 14 21 L 14 26 L 13 26 L 13 21 L 8 21 L 8 15 L 13 15 L 13 12 L 5 12 L 5 6 L 13 6 L 13 1 Z" />
             </svg>
           </div>
-          <div class="align_button" id="tool_alignright" title="Align Right" data-align="right">
+          <div class="align_button" id="tool_alignright" title="右对齐" data-align="right">
             <svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg" width="27" height="27">
               <path d="M 25 1 L 25 5 L 13 5 L 13 11 L 25 11 L 25 16 L 7 16 L 7 22 L 25 22 L 25 26 L 26 26 L 26 1 L 25 1 Z"/>
             </svg>
           </div>
-          <div class="align_button" id="tool_aligntop" title="Align Top"  data-align="top">
+          <div class="align_button" id="tool_aligntop" title="顶部"  data-align="top">
             <svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg" width="27" height="27">
               <path d="M 1 2 L 5 2 L 5 14 L 11 14 L 11 2 L 16 2 L 16 20 L 22 20 L 22 2 L 26 2 L 26 1 L 1 1 L 1 2 Z"/>
             </svg>
           </div>
-          <div class="align_button" id="tool_alignmiddle" title="Align Middle" data-align="middle">
+          <div class="align_button" id="tool_alignmiddle" title="垂直居中" data-align="middle">
             <svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg" width="27" height="27">
               <path d="M 26 13 L 26 14 L 21 14 L 21 22 L 15 22 L 15 14 L 12 14 L 12 19 L 6 19 L 6 14 L 1 14 L 1 13 L 6 13 L 6 8 L 12 8 L 12 13 L 15 13 L 15 5 L 21 5 L 21 13 L 26 13 Z"/>
             </svg>
           </div>
-          <div class="align_button" id="tool_alignbottom" title="Align Bottom"  data-align="bottom">
+          <div class="align_button" id="tool_alignbottom" title="底部"  data-align="bottom">
             <svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg" width="27" height="27">
               <path d="M 1 25 L 5 25 L 5 13 L 11 13 L 11 25 L 16 25 L 16 7 L 22 7 L 22 25 L 26 25 L 26 26 L 1 26 L 1 25"/>
             </svg>
@@ -588,7 +588,7 @@
         </div>
     </div>
     <div class="clearfix"></div>
-    <div class="button full" id="button_group">Group Elements</div>
+    <div class="button full" id="button_group">合并为一个分组</div>
     <div class="button full" id="tool_text_on_path" title="Place text on path">Place text on path</div>
 
   </div>
@@ -630,31 +630,31 @@
   </div>
 
 <div id="tools_left" class="tools_panel">
-  <div class="tool_button" id="tool_select" data-mode="select" title="Select Tool [V]">
+  <div class="tool_button" id="tool_select" data-mode="select" title="选择 [V]">
     <svg viewBox="0 0 24 24" width="24" height="24">
       <path d="M17.15 20.76l-2.94 1.5-3.68-6-4.41 3V1.24l12.5 12.01-4.41 1.5 2.94 6z"/>
     </svg>
   </div>
-  <div class="tool_button" id="tool_fhpath" data-mode="fhpath" title="Pencil Tool [P]">
+  <div class="tool_button" id="tool_fhpath" data-mode="fhpath" title="铅笔 [P]">
     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" style="transform: scale(-1,1)"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" /></svg>
   </div>
-  <div class="tool_button" id="tool_line" data-mode="line" title="Line Tool [L]">
+  <div class="tool_button" id="tool_line" data-mode="line" title="线 [L]">
     <svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg" width="24" height="24" >
       <path d="M 3 1 L 26 24 L 24 26 L 1 3 L 3 1 Z"></path>
     </svg>
   </div>
-  <div class="tool_button" id="tool_rect" data-mode="rect" title="Square/Rect Tool [R]">
+  <div class="tool_button" id="tool_rect" data-mode="rect" title="正/长方形 Tool [R]">
     <svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
       <path d="M 0 8 L 0 24 L 24 24 L 25 8 L 0 8 Z"/>
     </svg>
   </div>
-  <div class="tool_button" id="tool_ellipse" data-mode="ellipse" title="Ellipse/Circle Tool [C]">
+  <div class="tool_button" id="tool_ellipse" data-mode="ellipse" title="圆/椭圆 Tool [C]">
     <svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
       <ellipse cx="13" cy="13" rx="13" ry="9"></ellipse>
     </svg>
   </div>
 
-  <div class="tool_button" id="tool_shapelib" data-mode="shapelib" title="Shape Tool [s]" >
+  <div class="tool_button" id="tool_shapelib" data-mode="shapelib" title="形状 [s]" >
     <svg xmlns="http://www.w3.org/2000/svg" height="27" width="27" viewBox="0 0 24 24" >
       <polygon points="14.43,10 12,2 9.57,10 2,10 8.18,14.41 5.83,22 12,17.31 18.18,22 15.83,14.41 22,10"/>
     </svg>
@@ -663,40 +663,40 @@
     </div>
 </div>
 
-  <div class="tool_button" id="tool_path" data-mode="path" title="Path Tool [P]">
+  <div class="tool_button" id="tool_path" data-mode="path" title="路径 [P]">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" width="27" height="27">
       <path d="M12.2 1.9c0-.36.86 0 .86 0V14a1.3 1.3 0 10.88 0V1.9s.87-.36.87 0c0 6.81 5.22 11.68 5.22 11.68l-3.25 8.2h-6.55l-3.26-8.2s5.22-4.87 5.22-11.68zM7.83 25.26v-2.61h11.32v2.6H7.84z"/>
     </svg>
   </div>
-  <div class="tool_button" id="tool_text" data-mode="text" title="Text Tool [T]">
+  <div class="tool_button" id="tool_text" data-mode="text" title="文字 [T]">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="2 2 20 20" width="27" height="27"><path d="M5 4v3h5.5v12h3V7H19V4z"/></svg>
   </div>
 
-  <div class="tool_button" id="tool_zoom" data-mode="zoom" title="Zoom Tool [Z]">
+  <div class="tool_button" id="tool_zoom" data-mode="zoom" title="缩放 [Z]">
     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="2 2 20 20" width="27"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
   </div>
 
-  <div class="tool_button" id="tool_eyedropper" data-mode="eyedropper" title="Eyedropper Tool [E]">
+  <div class="tool_button" id="tool_eyedropper" data-mode="eyedropper" title="取色器 [E]">
     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="2 2 20 20" width="27" style="transform: scale(-1, 1)"><path d="M20.71 5.63l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-3.12 3.12-1.93-1.91-1.41 1.41 1.42 1.42L3 16.25V21h4.75l8.92-8.92 1.42 1.42 1.41-1.41-1.92-1.92 3.12-3.12c.4-.4.4-1.03.01-1.42zM6.92 19L5 17.08l8.06-8.06 1.92 1.92L6.92 19z"/></svg>
   </div>
   
   <div id="color_tools">
-        <div id="tool_switch" title="Switch stroke and fill colors [X]">
+        <div id="tool_switch" title="切换画笔和填充颜色 [X]">
           <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 11'><path d='M3.01 2A6 6 0 019 8h1.83l-2.91 2.91L5 8h2a4 4 0 00-3.99-4v1.93L.1 3.02 3.01.1V2z' /></svg>
         </div>
         <div class="color_tool active" id="tool_fill">
-          <label class="icon_label" title="Change fill color"></label>
+          <label class="icon_label" title="修改填充颜色"></label>
           <div class="color_block">
             <div id="fill_bg"></div>
-            <div id="fill_color" class="color_block"></div>
+            <div id="fill_color" class="color_block"  title="修改填充颜色"></div>
           </div>
         </div>
 
         <div class="color_tool" id="tool_stroke">
-            <label class="icon_label" title="Change stroke color"></label>
+            <label class="icon_label" title="修改画笔颜色"></label>
           <div class="color_block">
             <div id="stroke_bg"></div>
-            <div id="stroke_color" class="color_block" title="Change stroke color"></div>
+            <div id="stroke_color" class="color_block" title="修改画笔颜色"></div>
           </div>
         </div>
   </div>
@@ -730,7 +730,7 @@
     </div>
   </div>
   
-  <div id="palette" title="Click to change fill color, shift-click to change stroke color"></div>
+  <div id="palette" title="点击改变填充颜色, Shift+点击改变画笔颜色"></div>
 </div>
 
 <!-- hidden divs -->
@@ -747,16 +747,16 @@
 </div>
 
 <ul id="cmenu_canvas" class="contextMenu">
-  <li><a href="#cut">Cut <span class="shortcut">⌘X;</span></a></li>
-  <li><a href="#copy">Copy<span class="shortcut">⌘C</span></a></li>
-  <li><a href="#paste">Paste<span class="shortcut">⌘V</span></a></li>
-  <li class="separator"><a href="#delete">Delete<span class="shortcut">⌫</span></a></li>
-  <li class="separator"><a href="#group">Group<span class="shortcut">⌘G</span></a></li>
-  <li><a href="#ungroup">Ungroup<span class="shortcut">⌘⇧G</span></a></li>
-  <li class="separator"><a href="#move_front">Bring to Front<span class="shortcut">⌘⇧↑</span></a></li>
-  <li><a href="#move_up">Bring Forward<span class="shortcut">⌘↑</span></a></li>
-  <li><a href="#move_down">Send Backward<span class="shortcut">⌘↓</span></a></li>
-  <li><a href="#move_back">Send to Back<span class="shortcut">⌘⇧↓</span></a></li>
+  <li><a href="#cut">剪切 <span class="shortcut">⌘X;</span></a></li>
+  <li><a href="#copy">复制<span class="shortcut">⌘C</span></a></li>
+  <li><a href="#paste">粘贴<span class="shortcut">⌘V</span></a></li>
+  <li class="separator"><a href="#delete">删除<span class="shortcut">⌫</span></a></li>
+  <li class="separator"><a href="#group">合并为一个分组<span class="shortcut">⌘G</span></a></li>
+  <li><a href="#ungroup">取消分组<span class="shortcut">⌘⇧G</span></a></li>
+  <li class="separator"><a href="#move_front">置于顶层<span class="shortcut">⌘⇧↑</span></a></li>
+  <li><a href="#move_up">置于上一层<span class="shortcut">⌘↑</span></a></li>
+  <li><a href="#move_down">置于顶层<span class="shortcut">⌘↓</span></a></li>
+  <li><a href="#move_back">置于底层<span class="shortcut">⌘⇧↓</span></a></li>
 </ul>
 
 <div class="tools_flyout inverted-undo" id="tools_shapelib">
